@@ -13,7 +13,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        This is some text within a card block.
+                       Welcome
                     </div>
                 </div>
             </div>

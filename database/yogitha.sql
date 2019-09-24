@@ -1,38 +1,4 @@
 #
-# DUMP FILE
-# 
-# Database is ported from MS Access
-#------------------------------------------------------------------
-# Created using "MS Access to MySQL" form http://www.bullzip.com
-# Program Version 5.5.282
-#
-# OPTIONS:
-#   sourcefilename=D:/sethu/yogitha/database/YOGITHA1920.mdb
-#   sourceusername=
-#   sourcepassword=
-#   sourcesystemdatabase=
-#   destinationdatabase=movedb
-#   storageengine=MyISAM
-#   dropdatabase=0
-#   createtables=1
-#   unicode=1
-#   autocommit=1
-#   transferdefaultvalues=1
-#   transferindexes=1
-#   transferautonumbers=1
-#   transferrecords=1
-#   columnlist=1
-#   tableprefix=
-#   negativeboolean=0
-#   ignorelargeblobs=0
-#   memotype=LONGTEXT
-#   datetimetype=DATETIME
-#
-
-CREATE DATABASE IF NOT EXISTS `movedb`;
-USE `movedb`;
-
-#
 # Table structure for table '~TMPCLP639441'
 #
 
