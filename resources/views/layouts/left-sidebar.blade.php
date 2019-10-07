@@ -9,7 +9,7 @@
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{ url('accounts')}}">Accounts</a></li>
                             <li><a href="{{ url('items')}}">Items</a></li>
-                            <li><a href="{{ url('itemsgroup')}}">Items-GroUp</a></li>
+                            <li><a href="{{ url('itemsgroup')}}">Items-Group</a></li>
                             <li><a href="{{ url('unit')}}">Unit</a></li>
                             <li><a href="{{ url('setpartyrate')}}">Set Party Rate</a></li>
                             <li><a href="{{ url('setgsm')}}">Set GSM</a></li>

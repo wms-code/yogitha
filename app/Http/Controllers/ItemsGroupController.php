@@ -14,7 +14,11 @@ class ItemsGroupController extends Controller
      */
     public function index()
     {
-        return $itemsGroup= ItemsGroup::all();
+        $itemsGroup= ItemsGroup::orderBy('Group_Name','asc')->paginate(5);
+
+
+
+        return view('itemsgroup.list',compact('itemsGroup'));
     }
 
     /**
