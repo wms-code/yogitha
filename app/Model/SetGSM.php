@@ -12,4 +12,11 @@ class SetGSM extends Model
     protected $PrimaryKey=['Ply','GSM'];
 
     public $incrementing =false;
+
+    public function getRouteKeyName()
+    {
+        return 'Ac_Code';
+    }
+
+    
 }

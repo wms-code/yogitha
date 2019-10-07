@@ -12,4 +12,9 @@ class Unit extends Model
     protected $PrimaryKey='Unit_Code';
 
     //public $incrementing =false;
+
+    public function getRouteKeyName()
+    {
+        return 'Unit_Code';
+    }
 }

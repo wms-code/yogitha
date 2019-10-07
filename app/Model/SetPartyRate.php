@@ -12,4 +12,9 @@ class SetPartyRate extends Model
     protected $PrimaryKey=['Pty_Code','Comp_ID'];
 
     public $incrementing =false;
+
+    public function getRouteKeyName()
+    {
+        return 'Ac_Code';
+    }
 }

@@ -12,4 +12,10 @@ class Accounts extends Model
     protected $PrimaryKey='Ac_Code';
 
     protected $guarded=[];
+
+    public function getRouteKeyName()
+    {
+        return 'Ac_Code';
+    }
+
 }

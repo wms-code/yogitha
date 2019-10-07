@@ -12,4 +12,9 @@ class ItemsGroup extends Model
     protected $PrimaryKey='Group_Code';
 
     protected $guarded=[];
+
+    public function getRouteKeyName()
+    {
+        return 'Group_Code';
+    }
 }

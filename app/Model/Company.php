@@ -13,4 +13,13 @@ class Company extends Model
     protected $PrimaryKey='Comp_ID';
 
     protected $guarded=[];
+
+
+
+    public function getRouteKeyName()
+    {
+        return 'Comp_ID';
+    }
+
+    
 }
