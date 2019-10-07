@@ -13,6 +13,8 @@ class Unit extends Model
 
     //public $incrementing =false;
 
+    public $timestamps = false;
+
     public function getRouteKeyName()
     {
         return 'Unit_Code';

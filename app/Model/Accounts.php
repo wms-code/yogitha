@@ -10,8 +10,11 @@ class Accounts extends Model
     protected $table='accmasaccounts';
 
     protected $PrimaryKey='Ac_Code';
+    
 
     protected $guarded=[];
+
+    public $timestamps = false;
 
     public function getRouteKeyName()
     {

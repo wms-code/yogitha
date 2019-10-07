@@ -13,6 +13,8 @@ class SetGSM extends Model
 
     public $incrementing =false;
 
+    public $timestamps = false;
+
     public function getRouteKeyName()
     {
         return 'Ac_Code';

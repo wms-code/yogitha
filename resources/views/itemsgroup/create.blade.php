@@ -21,26 +21,26 @@
                             @method('post')
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Group Name</label>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <input type="text" name="Group_Name" maxlength="50" class="form-control">
                                     </div>
                                 </div>
                                 
-                                <div class="form-group row last">
+                            {{--     <div class="form-group row last">
                                     <label class="control-label text-right col-md-3">Country</label>
                                     <div class="col-md-7">
                                         <select class="form-control">
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="offset-sm-3 col-md-7">
+                                                <a href="{{ url('itemsgroup') }}" class="btn btn-inverse">Cancel</a>
                                                 <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                                <button type="button" class="btn btn-inverse">Cancel</button>
                                             </div>
                                         </div>
 

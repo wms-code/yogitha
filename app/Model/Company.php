@@ -12,6 +12,8 @@ class Company extends Model
 
     protected $PrimaryKey='Comp_ID';
 
+    public $timestamps = false;
+
     protected $guarded=[];
 
 

@@ -13,6 +13,8 @@ class Items extends Model
 
     protected $guarded=[];
 
+    public $timestamps = false;
+
     public function getRouteKeyName()
     {
         return 'It_Code';

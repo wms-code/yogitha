@@ -14,7 +14,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('assets')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ url('css')}}/style.css" rel="stylesheet">
+    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
+
     <!-- You can change the theme colors from here -->
     <link href="{{ url('css')}}/colors/blue.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
