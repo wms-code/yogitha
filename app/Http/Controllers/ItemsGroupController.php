@@ -36,7 +36,8 @@ class ItemsGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          ItemsGroup::Create($request->all());
+          return  redirect('itemsgroup');
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('pagetitle','Companies')
+@section('pagetitle','Edit Item Group')
     
 
 
