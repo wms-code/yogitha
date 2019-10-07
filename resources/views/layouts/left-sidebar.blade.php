@@ -1,55 +1,31 @@
 <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
-        <div class="scroll-sidebar">
-            <!-- User profile -->
-            <div class="user-profile" style="background: url({{ url('assets')}}/images/background/user-info.jpg) no-repeat;">
-                <!-- User profile image -->
-                <div class="profile-img"> <img src="{{ url('assets')}}/images/users/profile.png"  alt="user" /> </div>
-                <!-- User profile text-->
-                <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> {{ Auth::user()->name }}</a>
-                    <div class="dropdown-menu animated flipInY">
-                        <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                        <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                        <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                        <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-                        <div class="dropdown-divider"></div> <a  class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Logout</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End User profile text-->
+         
+          
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav">
-                <ul id="sidebarnav">
-                    <li class="nav-small-cap">PERSONAL</li>
-                    
+                <ul id="sidebarnav"> 
                     <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Ui Elements</span></a>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">MASTER</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="ui-cards.html">Cards</a></li>
-                          
+                            <li><a href="{{ url('accounts')}}">Accounts</a></li>
+                            <li><a href="{{ url('items')}}">Items</a></li>
+                            <li><a href="{{ url('itemsgroup')}}">Items-GroUp</a></li>
+                            <li><a href="{{ url('unit')}}">Unit</a></li>
+                            <li><a href="{{ url('setpartyrate')}}">Set Party Rate</a></li>
+                            <li><a href="{{ url('setgsm')}}">Set GSM</a></li>
+                            <li><a href="{{ url('company')}}">Company</a></li>
                         </ul>
                     </li>
-              
-                    <li class="nav-devider"></li>
-                    <li class="nav-small-cap">EXTRA COMPONENTS</li>
-               
                     <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">TRANSACTIONS</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="#">item 1.1</a></li>
-                            <li><a href="#">item 1.2</a></li>
-                            <li>
-                                <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                                <ul aria-expanded="false" class="collapse">
-                                    <li><a href="#">item 1.3.1</a></li>
-                                    <li><a href="#">item 1.3.2</a></li>
-                                    <li><a href="#">item 1.3.3</a></li>
-                                    <li><a href="#">item 1.3.4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">item 1.4</a></li>
+                            <li><a href="#">Accounts</a></li>
+                            <li><a href="#">Items</a></li>
+                            <li><a href="#">Items-Grop</a></li>
+                            <li><a href="#">Unit</a></li>
+                            <li><a href="#">Set Party Rate</a></li>
+                            <li><a href="#">Set GSM</a></li>
+                            <li><a href="#">Company</a></li>
                         </ul>
                     </li>
                 </ul>

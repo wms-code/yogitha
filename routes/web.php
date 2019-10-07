@@ -21,6 +21,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::resource('company', 'CompanyController');
+    Route::resource('/company', 'CompanyController');
+    Route::resource('/itemsgroup', 'ItemsGroupController');
+    Route::resource('/items', 'ItemsController');
+    Route::resource('/unit', 'UnitController');
+    Route::resource('/accounts', 'AccountsController');
+    Route::resource('/setpartyrate', 'SetPartyRateController');
+    Route::resource('/setgsm', 'SetGSMController');
+
 });
 
