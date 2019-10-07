@@ -15,7 +15,7 @@
                                                 <h4 class="card-title">Items Group List </h4>
                                             </div>
                                             <div class="col-6">
-                                                    <div class="float-right"><a class="btn btn-sm  btn-primary" href="{{ url('itemsgroup/create') }}">Add New</a></div>
+                                                    <div class="float-right"><a class="btn btn-sm  btn-primary" href="{{ url('company/create') }}">Add New</a></div>
                                                 
                                             </div>
                                           </div>
