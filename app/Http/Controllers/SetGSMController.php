@@ -14,7 +14,7 @@ class SetGSMController extends Controller
      */
     public function index()
     {
-        //
+        return $setGSM= SetGSM::all();
     }
 
     /**

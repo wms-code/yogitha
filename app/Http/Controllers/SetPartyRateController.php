@@ -14,7 +14,7 @@ class SetPartyRateController extends Controller
      */
     public function index()
     {
-        //
+        return $setPartyRate= SetPartyRate::all();
     }
 
     /**

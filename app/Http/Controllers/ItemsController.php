@@ -14,7 +14,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        //
+        return $items= Items::all();
     }
 
     /**

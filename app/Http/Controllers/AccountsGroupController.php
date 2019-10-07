@@ -14,7 +14,7 @@ class AccountsGroupController extends Controller
      */
     public function index()
     {
-        //
+        return $accountsGroup= AccountsGroup::all();
     }
 
     /**

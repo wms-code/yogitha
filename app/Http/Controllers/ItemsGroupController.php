@@ -14,7 +14,7 @@ class ItemsGroupController extends Controller
      */
     public function index()
     {
-        //
+        return $itemsGroup= ItemsGroup::all();
     }
 
     /**
