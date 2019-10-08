@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Items;
+use App\Model\Unit;
+use App\Model\ItemsGroup;
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -14,7 +16,8 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        return $items= Items::all();
+        $items= Items::orderBy('It_Name','asc')->get();
+        return view('items.list',compact('items'));
     }
 
     /**
@@ -24,7 +27,9 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        //
+        $itemsgroups=ItemsGroup::all();
+        $units=Unit::all();
+        return view('items.create',compact('itemsgroups','units'));
     }
 
     /**
@@ -35,7 +40,10 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Items::add($request->all());
+        $msg = [
+          'message' => 'Item  created successfully!' ];
+        return  redirect('items')->with($msg);
     }
 
     /**
@@ -44,9 +52,9 @@ class ItemsController extends Controller
      * @param  \App\Model\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function show(Items $items)
+    public function show($items)
     {
-       
+       return Items::where('It_Code',$items)->with(['group','unit'])->get();
     }
 
     /**
@@ -55,9 +63,12 @@ class ItemsController extends Controller
      * @param  \App\Model\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function edit(Items $items)
+    public function edit($items)
     {
-        //
+        $itemsgroups=ItemsGroup::all();
+        $units=Unit::all();
+        $item=Items::where('It_Code',$items)->with(['group','unit'])->first();
+        return  view('items.edit',compact('itemsgroups','units','item'));
     }
 
     /**
@@ -67,9 +78,12 @@ class ItemsController extends Controller
      * @param  \App\Model\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Items $items)
+    public function update(Request $request,$it_code)
     {
-        //
+        Items::where('It_Code', $it_code)
+                    ->update($request->except(['_token','_method']));       
+        $msg =['message' => 'Item  Updated successfully!'];
+       return  redirect('items')->with($msg);
     }
 
     /**
@@ -78,8 +92,11 @@ class ItemsController extends Controller
      * @param  \App\Model\Items  $items
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Items $items)
+    public function destroy($it_code)
     {
-        //
+        Items::where('It_Code', $it_code)->delete();
+        $msg =['message' => 'Item  Deleted successfully!',
+        'type' => 'warning'];
+        return  redirect('items')->with($msg);
     }
 }

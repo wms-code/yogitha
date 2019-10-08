@@ -26,13 +26,7 @@
                                     </div>
                                 </div>
                                 
-                            {{--     <div class="form-group row last">
-                                    <label class="control-label text-right col-md-3">Country</label>
-                                    <div class="col-md-7">
-                                        <select class="form-control">
-                                        </select>
-                                    </div>
-                                </div> --}}
+                    
                             </div>
                             <div class="form-actions">
                                 <div class="row">
