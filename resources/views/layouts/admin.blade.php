@@ -15,9 +15,13 @@
     <link href="{{ url('assets')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
-
+    @if(Session::has('message'))
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    @endif
     <!-- You can change the theme colors from here -->
     <link href="{{ url('css')}}/colors/blue.css" id="theme" rel="stylesheet">
+
+    @stack('style')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -123,25 +127,50 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{ url('assets')}}/plugins/jquery/jquery.min.js"></script>
+    <script src="{{ url('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ url('assets')}}/plugins/bootstrap/js/tether.min.js"></script>
-    <script src="{{ url('assets')}}/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url('assets/plugins/bootstrap/js/tether.min.js')}}"></script>
+    <script src="{{ url('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{ url('js')}}/jquery.slimscroll.js"></script>
+    <script src="{{ url('js/jquery.slimscroll.js')}}"></script>
     <!--Wave Effects -->
-    <script src="{{ url('js')}}/waves.js"></script>
+    <script src="{{ url('js/waves.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="{{ url('js')}}/sidebarmenu.js"></script>
+    <script src="{{ url('js/sidebarmenu.js')}}"></script>
     <!--stickey kit -->
-    <script src="{{ url('assets')}}/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="{{ url('assets')}}/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{ url('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
+    <script src="{{ url('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="{{ url('js')}}/custom.min.js"></script>
+    @if(Session::has('message'))
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        Command: toastr["{{ Session::get('type', 'success') }}"]("{{ Session::get('message') }}", "{{ Session::get('type', 'Alert Message') }}")
+
+    toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+    </script>
+  @endif
+    <script src="{{ url('js/custom.min.js')}}"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="{{ url('assets')}}/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="{{ url('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    @stack('script')
 </body>
 
 </html>

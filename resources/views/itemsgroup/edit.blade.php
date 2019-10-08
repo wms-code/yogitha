@@ -5,51 +5,53 @@
 
 
 
-@section('content')               
-        <div class="row">
-                <div class="col-12">
-                        <div class="card">
-                            <div class="card-block">
-                                    <div class="row justify-content-between">
-                                            <div class="col-4">
-                                                <h4 class="card-title">Items Group List </h4>
-                                            </div>
-                                            <div class="col-6">
-                                                    <div class="float-right"><a class="btn btn-sm  btn-primary" href="{{ url('company/create') }}">Add New</a></div>
-                                                
-                                            </div>
-                                          </div>
-                                        </div>
-                             
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                 
-                                                <th>Group Name</th>
-                                            
-                                                <th class="text-nowrap">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($itemsGroup as $d)
-                                            <tr>
-                                                
-                                                <td>{{$d->Group_Name}}</td>                                               
-                                                <td class="text-nowrap">
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                           
-                                        </tbody>
-                                    </table>
+@section('content')  
 
-                                    {{ $itemsGroup->links() }}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 ">
+            <div class="card card-outline-info">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Edit </h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ url('itemsgroup') }}/{{ $Group_Code }}" method="post" class="form-horizontal form-bordered">
+                        <div class="form-body">
+                        <br>
+                        @csrf
+                        @method('put')
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Group Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" name="Group_Name" maxlength="50" value="{{ $Group_Name }}" class="form-control">
+                                </div>
+                            </div>
+                            
+                        {{--     <div class="form-group row last">
+                                <label class="control-label text-right col-md-3">Country</label>
+                                <div class="col-md-7">
+                                    <select class="form-control">
+                                    </select>
+                                </div>
+                            </div> --}}
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="offset-sm-3 col-md-7">
+                                            <a href="{{ url('itemsgroup') }}" class="btn btn-inverse">Cancel</a>
+                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
+
 @endsection

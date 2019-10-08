@@ -36,8 +36,10 @@ class ItemsGroupController extends Controller
      */
     public function store(Request $request)
     {
-          ItemsGroup::addrec($request->all());
-          return  redirect('itemsgroup');
+          ItemsGroup::add($request->all());
+          $msg = [
+            'message' => 'Item Group created successfully!' ];
+          return  redirect('itemsgroup')->with($msg);
     }
 
     /**
@@ -46,9 +48,9 @@ class ItemsGroupController extends Controller
      * @param  \App\Model\ItemsGroup  $itemsGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(ItemsGroup $itemsGroup)
+    public function show(ItemsGroup $itemsgroup)
     {
-        //
+      
     }
 
     /**
@@ -57,9 +59,9 @@ class ItemsGroupController extends Controller
      * @param  \App\Model\ItemsGroup  $itemsGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit(ItemsGroup $itemsGroup)
+    public function edit(ItemsGroup $itemsgroup)
     {
-        //
+        return  view('itemsgroup.edit', $itemsgroup);
     }
 
     /**
@@ -69,9 +71,12 @@ class ItemsGroupController extends Controller
      * @param  \App\Model\ItemsGroup  $itemsGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ItemsGroup $itemsGroup)
+    public function update(Request $request,$group_code)
     {
-        //
+        ItemsGroup::where('Group_Code', $group_code)
+                    ->update(['Group_Name'=>$request->Group_Name ]);       
+        $msg =['message' => 'Item Group Updated successfully!'];
+       return  redirect('itemsgroup')->with($msg);
     }
 
     /**
@@ -80,8 +85,11 @@ class ItemsGroupController extends Controller
      * @param  \App\Model\ItemsGroup  $itemsGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ItemsGroup $itemsGroup)
+    public function destroy($group_code)
     {
-        //
+        ItemsGroup::where('Group_Code', $group_code)->delete();
+        $msg =['message' => 'Item Group Deleted successfully!',
+        'type' => 'warning'];
+        return  redirect('itemsgroup')->with($msg);
     }
 }

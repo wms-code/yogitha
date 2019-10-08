@@ -22,13 +22,14 @@ class ItemsGroup extends Model
         return 'Group_Code';
     }
 
+
     public function getid()
     {
        $id=$this->latest('Group_Code')->first()->Group_Code;
        return $id+1;
     }
 
-    protected function addrec($rec)
+    protected function add($rec)
     {
        if(isset($rec['Group_Name']))
        {
