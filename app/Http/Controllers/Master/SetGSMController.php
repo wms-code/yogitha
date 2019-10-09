@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\SetGSM;
+use App\Model\Master\SetGSM;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

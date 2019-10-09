@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\ItemsGroup;
+use App\Model\Master\ItemsGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

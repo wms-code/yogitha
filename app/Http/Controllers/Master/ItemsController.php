@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\Unit;
-use App\Model\Items;
-use App\Model\ItemsGroup;
+use App\Model\Master\Unit;
+use App\Model\Master\Items;
+use App\Model\Master\ItemsGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

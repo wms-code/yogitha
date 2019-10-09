@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SetGSM extends Model
+class Accounts extends Model
 {
     //
-    protected $table='masply';
+    protected $table='accmasaccounts';
 
-    protected $PrimaryKey=['Ply','GSM'];
+    protected $PrimaryKey='Ac_Code';
+    
 
-    public $incrementing =false;
+    protected $guarded=[];
 
     public $timestamps = false;
 
@@ -20,5 +21,4 @@ class SetGSM extends Model
         return 'Ac_Code';
     }
 
-    
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\SetPartyRate;
+use App\Model\Master\SetPartyRate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
