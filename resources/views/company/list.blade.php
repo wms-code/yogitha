@@ -42,8 +42,13 @@
                                                 <td>{{$company->GSTNo}}</td>
                                                 <td>{{$company->CompAddress}}</td>
                                                 <td class="text-nowrap">
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                                    <a href="{{ url('company') }}/{{$company->Comp_ID}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                    <a href="javascript:void(0);" onclick="$(this).find('form').submit();" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i>
+                                                            <form action="{{ url('/company') }}/{{$company->Comp_ID}}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                    </a>
                                                 </td>
                                             </tr>
                                             @endforeach

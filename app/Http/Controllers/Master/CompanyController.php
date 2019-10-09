@@ -49,7 +49,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('company.edit',$company);
     }
 
     /**
@@ -61,7 +61,7 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        return redirect('company');
     }
 
     /**
