@@ -34,9 +34,9 @@
                                                          
                                                         <th>Item Name</th>
                                                         <th>Unit</th>
-                                                        <th>U-Name</th>
                                                         <th>Group</th>
-                                                        <th>G-Name</th>
+                                                        <th>Rate</th>
+                                                        <th>Stock</th>
                                                         <th class="text-nowrap">Action</th>
                                                     </tr>
                                                 </thead>
@@ -45,10 +45,10 @@
                                                     <tr>
                                                         
                                                         <td>{{$d->It_Name}}</td>                                               
-                                                        <td>{{$d->Unit_Code}}</td>
-                                                        <td>{{ $d->unit['Unit_Name']}}</td>                                               
-                                                        <td>{{$d->Group_Code}}</td> 
+                                                        <td>{{ $d->unit['Unit_Name']}}</td>
                                                         <td>{{ $d->group['Group_Name']}}</td>                                               
+                                                        <td>{{$d->Item_Rate}}</td>                             
+                                                        <td>{{$d->Opn_Stock}}</td>                             
                                                                                                   
                                                         <td class="text-nowrap">
                                                             <a href="{{ url('items') }}/{{$d->It_Code}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
