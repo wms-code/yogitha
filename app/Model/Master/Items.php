@@ -47,7 +47,8 @@ class Items extends Model
            $data['It_Code']=$this->getid();
            $data['It_Name']=$rec['It_Name'];
            $data['Comp_Id']='1';
-          // $data['Item_Rate']=$rec['Item_Rate'];
+           $data['Item_Rate']=$rec['Item_Rate'];
+           $data['Opn_Stock']=$rec['Opn_Stock'];
            $data['Group_Code']=$rec['Group_Code'];
            $data['Unit_Code']=$rec['Unit_Code'];
            return $this->create($data);

@@ -51,6 +51,20 @@
                                     </div>
                                 </div> 
                         </div>
+
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Rate</label>
+                            <div class="col-md-6">
+                                <input type="text" name="Item_Rate"  value="{{ $item->Item_Rate }}" maxlength="50" class="form-control">
+                            </div>
+                        </div>
+                    
+                        <div class="form-group row last">
+                            <label class="control-label text-right col-md-3">Stock</label>
+                            <div class="col-md-6">
+                                <input type="text" name="Opn_Stock"  value="{{ $item->Opn_Stock }}" maxlength="50" class="form-control">
+                            </div>
+                        </div>
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-12">

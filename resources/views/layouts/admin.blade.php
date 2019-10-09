@@ -10,9 +10,8 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets')}}/images/favicon.png">
-    <title>@yield('pagetitle',"Home")</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ url('assets')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>@yield('pagetitle',"Home")</title>    
+    <link href="{{ url('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->   
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     @if(Session::has('message'))
@@ -77,9 +76,7 @@
                         </ol>
                         @endif
                     </div> 
-                    <div class="">
-                        <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                    </div>                               
+                                                
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -165,11 +162,8 @@
 }
     </script>
   @endif
-    <script src="{{ url('js/custom.min.js')}}"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="{{ url('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    <script src="{{ url('js/custom.js')}}"></script>
+   
     @stack('script')
 </body>
 
