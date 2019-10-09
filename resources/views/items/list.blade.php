@@ -33,8 +33,10 @@
                                                     <tr>
                                                          
                                                         <th>Item Name</th>
-                                                        <th>Unit Code</th>
-                                                        <th>Group Code</th>
+                                                        <th>Unit</th>
+                                                        <th>U-Name</th>
+                                                        <th>Group</th>
+                                                        <th>G-Name</th>
                                                         <th class="text-nowrap">Action</th>
                                                     </tr>
                                                 </thead>
@@ -43,8 +45,11 @@
                                                     <tr>
                                                         
                                                         <td>{{$d->It_Name}}</td>                                               
-                                                        <td>{{$d->Unit_Code}}</td>                                               
-                                                        <td>{{$d->Group_Code}}</td>                                               
+                                                        <td>{{$d->Unit_Code}}</td>
+                                                        <td>{{ $d->unit['Unit_Name']}}</td>                                               
+                                                        <td>{{$d->Group_Code}}</td> 
+                                                        <td>{{ $d->group['Group_Name']}}</td>                                               
+                                                                                                  
                                                         <td class="text-nowrap">
                                                             <a href="{{ url('items') }}/{{$d->It_Code}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                                             <a href="javascript:void(0);" onclick="$(this).find('form').submit();" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i>

@@ -13,7 +13,7 @@
     <title>@yield('pagetitle',"Home")</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('assets')}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Custom CSS -->   
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     @if(Session::has('message'))
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
