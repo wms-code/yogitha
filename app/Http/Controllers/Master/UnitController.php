@@ -15,7 +15,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return $unit= Unit::all();
+        $unit= Unit::orderBy('Unit_Name','asc')->paginate(5);
+        return view('unit.list',compact('unit'));
     }
 
     /**
@@ -25,7 +26,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('unit.create');
     }
 
     /**
@@ -36,19 +37,12 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Unit::add($request->all());
+          $msg = [
+            'message' => 'Unit created successfully!' ];
+          return  redirect('unit')->with($msg);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Unit $unit)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +52,8 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return  view('unit.edit',$unit);
+
     }
 
     /**
@@ -68,9 +63,12 @@ class UnitController extends Controller
      * @param  \App\Model\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unit $unit)
+    public function update(Request $request, $unit_code)
     {
-        //
+        Unit::where('Unit_Code', $unit_code)
+        ->update(['Unit_Name'=>$request->Unit_Name ]);       
+        $msg =['message' => 'Unit Updated successfully!'];
+        return  redirect('unit')->with($msg);
     }
 
     /**
@@ -79,8 +77,11 @@ class UnitController extends Controller
      * @param  \App\Model\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unit $unit)
+    public function destroy(Unit $unit_code)
     {
-        //
+        Unit::where('Unit_Code', $unit_code)->delete();
+        $msg =['message' => 'Unit Deleted successfully!',
+        'type' => 'warning'];
+        return  redirect('unit')->with($msg);
     }
 }

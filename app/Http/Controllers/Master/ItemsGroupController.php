@@ -43,17 +43,7 @@ class ItemsGroupController extends Controller
           return  redirect('itemsgroup')->with($msg);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\ItemsGroup  $itemsGroup
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ItemsGroup $itemsgroup)
-    {
-      
-    }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
