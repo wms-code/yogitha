@@ -16,6 +16,8 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
+    
     {
         $items= Items::orderBy('It_Name','asc')->with(['group','unit'])->get();
         return view('items.list',compact('items'));
@@ -95,8 +97,8 @@ class ItemsController extends Controller
      */
     public function destroy($it_code)
     {
-        Items::where('It_Code', $it_code)->delete();
-        $msg =['message' => 'Item  Deleted successfully!',
+        //Items::where('It_Code', $it_code)->delete();
+        $msg =['message' => 'Unable to   Delete!',
         'type' => 'warning'];
         return  redirect('items')->with($msg);
     }

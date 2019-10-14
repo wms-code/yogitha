@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Master;
 use App\Model\Master\Accounts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Model\Master\AccountsGroup;
+ 
 class AccountsController extends Controller
 {
     /**
@@ -15,7 +16,13 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return $accounts= Accounts::all();
+       // return $accounts= Accounts::all();
+        $accounts= Accounts::orderBy('Ac_Name','asc')->with(['accountsgroups','subgroup'])->get();
+        return view('accounts.list',compact('accounts'));
+
+      //  $items= Items::orderBy('It_Name','asc')->with(['group','unit'])->get();
+        //return view('items.list',compact('items'));
+
     }
 
     /**
@@ -24,8 +31,11 @@ class AccountsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { 
+        $accountsgroups=AccountsGroup::all();
+        $subgroup=AccountsGroup::all();
+        $reportgroup=AccountsGroup::all();
+        return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
 
     /**

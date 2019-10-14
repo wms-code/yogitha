@@ -11,7 +11,7 @@
             <div class="col-md-8 col-md-offset-2 ">
                 <div class="card card-outline-info">
                     <div class="card-header">
-                        <h4 class="m-b-0 text-white">Add </h4>
+                        <h4 class="m-b-0 text-white">Add New </h4>
                     </div>
                 
                     <div class="card-body">

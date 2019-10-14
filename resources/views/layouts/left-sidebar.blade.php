@@ -19,13 +19,69 @@
                     <li>
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">TRANSACTIONS</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="#">Accounts</a></li>
-                            <li><a href="#">Items</a></li>
-                            <li><a href="#">Items-Grop</a></li>
-                            <li><a href="#">Unit</a></li>
-                            <li><a href="#">Set Party Rate</a></li>
-                            <li><a href="#">Set GSM</a></li>
-                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Order Entry</a></li>
+                            <li><a href="#">Invoice</a></li>
+                            <li><a href="#">Quatation</a></li>                           
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">ACCOUNTS</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="#">Payment Entry</a></li>
+                            <li><a href="#">Receipt Entry</a></li>
+                            <li><a href="#">Contra Entry</a></li>     
+                            <li><a href="#">Journal Entry</a></li>  
+                            <li><a href="#">Debit Note Entry</a></li> 
+                            <li><a href="#">Credit Note Entry</a></li>       
+                            <li><a href="#">Ledger</a></li>                                
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">PURCHASE</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="#">Payment Entry</a></li>
+                            <li><a href="#">Receipt Entry</a></li>
+                            <li><a href="#">Contra Entry</a></li>     
+                            <li><a href="#">Journal Entry</a></li>  
+                            <li><a href="#">Debit Note Entry</a></li> 
+                            <li><a href="#">Credit Note Entry</a></li>       
+                            <li><a href="#">Ledger</a></li>                                
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">EMPLOYEE</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="#">Payment Entry</a></li>
+                            <li><a href="#">Receipt Entry</a></li>
+                            <li><a href="#">Contra Entry</a></li>     
+                            <li><a href="#">Journal Entry</a></li>  
+                            <li><a href="#">Debit Note Entry</a></li> 
+                            <li><a href="#">Credit Note Entry</a></li>       
+                            <li><a href="#">Ledger</a></li>                                
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">REPORTS</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="#">Payment Entry</a></li>
+                            <li><a href="#">Receipt Entry</a></li>
+                            <li><a href="#">Contra Entry</a></li>     
+                            <li><a href="#">Journal Entry</a></li>  
+                            <li><a href="#">Debit Note Entry</a></li> 
+                            <li><a href="#">Credit Note Entry</a></li>       
+                            <li><a href="#">Ledger</a></li>                                
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">SETUP</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="#">Payment Entry</a></li>
+                            <li><a href="#">Receipt Entry</a></li>
+                            <li><a href="#">Contra Entry</a></li>     
+                            <li><a href="#">Journal Entry</a></li>  
+                            <li><a href="#">Debit Note Entry</a></li> 
+                            <li><a href="#">Credit Note Entry</a></li>       
+                            <li><a href="#">Ledger</a></li>                                
                         </ul>
                     </li>
                 </ul>
