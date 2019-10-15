@@ -52,9 +52,9 @@
                                                         <td>{{$d->GSTNO}}</td>                             
                                                                                                   
                                                         <td class="text-nowrap">
-                                                            <a href="{{ url('accounts') }}/{{$d->It_Code}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                            <a href="{{ url('accounts') }}/{{$d->Ac_Code}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                                             <a href="javascript:void(0);" onclick="$(this).find('form').submit();" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i>
-                                                                    <form action="{{ url('/accounts') }}/{{$d->It_Code}}" method="post">
+                                                                    <form action="{{ url('/accounts') }}/{{$d->Ac_Code}}" method="post">
                                                                         @csrf
                                                                         @method('DELETE')
                                                                     </form>

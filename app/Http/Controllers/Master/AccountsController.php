@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Master\Accounts;
 use App\Model\Master\AccountsGroup;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\DB;
 class AccountsController extends Controller
 {
     /**
@@ -55,6 +55,8 @@ class AccountsController extends Controller
                      ->get();
          */
 
+         
+
         $reportgroup = Accounts::report();
         $subgroup = AccountsGroup::subgroup();
         $accountsgroups = AccountsGroup::getall();
@@ -95,36 +97,15 @@ class AccountsController extends Controller
      * @param  \App\Model\Accounts  $accounts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Accounts $accounts)
+    public function edit($ac_code)
     {
-        /*  $accountsgroups = DB::table('accmasgroup')
-      ->select(DB::raw('Group_Name,Group_Code'))        
-        ->orderBy('Group_Name')
-        ->get();
-        $subgroup = DB::table('accmasgroup')
-               ->select(DB::raw('Group_Name,Group_Code'))
-               ->whereIn('Group_Code', array(11,12,14,15))
-               ->orderBy('Group_Name')
-               ->get();  */
-        $accountsgroups = AccountsGroup::getall();
+        $accgroup = AccountsGroup::getall();
         $subgroup = AccountsGroup::subgroup();
 
-        
-        //$reportgroup = Accounts::report();
-        $reportgroup = DB::table('accmasaccounts')
-                     ->select(DB::raw('Ac_Name,Ac_Code'))
-                     ->orderBy('Ac_Name')
-                    ->get();
-      
-                    $accounts = DB::table('accmasaccounts')
-                    ->join('accmasgroup', 'accmasaccounts.Group_Code', '=', 'accmasgroup.Group_Code')
-                    ->select('Ac_Code', 'accmasgroup.Group_Name', 'Ac_Name')
-                    ->where('Ac_Code',$accounts)
-                    ->get();
+        $reportgroup = Accounts::report();
+        $accounts = Accounts::where('Ac_Code',  '=', $ac_code)->first();
+        return view('accounts.edit', compact('accounts','accgroup','subgroup','reportgroup'));
 
-        
-        //$accounts=Accounts::where('Ac_Code',$items)->with(['group','unit'])->first();
-        return  view('accounts.edit',compact('accountsgroups','subgroup','reportgroup','accounts'));
     }
 
     /**
