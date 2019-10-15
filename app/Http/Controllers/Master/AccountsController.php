@@ -97,15 +97,20 @@ class AccountsController extends Controller
      */
     public function edit(Accounts $accounts)
     {
-        $accountsgroups = DB::table('accmasgroup')
-        ->select(DB::raw('Group_Name,Group_Code'))        
+        /*  $accountsgroups = DB::table('accmasgroup')
+      ->select(DB::raw('Group_Name,Group_Code'))        
         ->orderBy('Group_Name')
         ->get();
         $subgroup = DB::table('accmasgroup')
                ->select(DB::raw('Group_Name,Group_Code'))
                ->whereIn('Group_Code', array(11,12,14,15))
                ->orderBy('Group_Name')
-               ->get();
+               ->get();  */
+        $accountsgroups = AccountsGroup::getall();
+        $subgroup = AccountsGroup::subgroup();
+
+        
+        //$reportgroup = Accounts::report();
         $reportgroup = DB::table('accmasaccounts')
                      ->select(DB::raw('Ac_Name,Ac_Code'))
                      ->orderBy('Ac_Name')
@@ -116,6 +121,8 @@ class AccountsController extends Controller
                     ->select('Ac_Code', 'accmasgroup.Group_Name', 'Ac_Name')
                     ->where('Ac_Code',$accounts)
                     ->get();
+
+        
         //$accounts=Accounts::where('Ac_Code',$items)->with(['group','unit'])->first();
         return  view('accounts.edit',compact('accountsgroups','subgroup','reportgroup','accounts'));
     }

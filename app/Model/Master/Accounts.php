@@ -29,11 +29,9 @@ class Accounts extends Model
 
     protected function report()
     {
-        return $this->select('Ac_Name','Ac_Code') 
-        ->orderBy('Ac_Name')
+        return $this->select('Ac_Name','Ac_Code')->orderBy('Ac_Name')->get();
         //->where('status', '<>', 1)
         //->groupBy('status')
-        ->get();
     }
 
     protected function add($rec)
