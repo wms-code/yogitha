@@ -105,7 +105,8 @@ class AccountsController extends Controller
                      ->select(DB::raw('Ac_Name,Ac_Code'))
                      ->orderBy('Ac_Name')
                     ->get();
-        $accounts = DB::table('accmasaccounts')
+      
+                    $accounts = DB::table('accmasaccounts')
                     ->join('accmasgroup', 'accmasaccounts.Group_Code', '=', 'accmasgroup.Group_Code')
                     ->select('Ac_Code', 'accmasgroup.Group_Name', 'Ac_Name')
                     ->where('Ac_Code',$accounts)
