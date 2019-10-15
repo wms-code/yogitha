@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Traits\AddAccount;
 use Illuminate\Http\Request;
 use App\Model\Master\Accounts;
 use App\Model\Master\AccountsGroup;
@@ -9,6 +10,8 @@ use App\Http\Controllers\Controller;
 
 class AccountsController extends Controller
 {
+    use AddAccount;
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +19,8 @@ class AccountsController extends Controller
      */
     public function index()
     {
-       // return $accounts= Accounts::all();
         $accounts= Accounts::orderBy('Ac_Name','asc')->with(['accountsgroups','subgroup'])->get();
         return view('accounts.list',compact('accounts'));
-
-      //  $items= Items::orderBy('It_Name','asc')->with(['group','unit'])->get();
-        //return view('items.list',compact('items'));
 
     }
 
@@ -32,33 +31,9 @@ class AccountsController extends Controller
      */
     public function create()
     { 
-        /* $accountsgroups = DB::table('accmasgroup')
-        ->select(DB::raw('Group_Name,Group_Code')) 
-        //   ->select('Group_Name','Group_Code')     Why Not Use Simple Select
-        ->orderBy('Group_Name')
-        ->get();
-
-        //$subgroup=AccountsGroup::all();
-        $subgroup = DB::table('accmasgroup')
-               ->select(DB::raw('Group_Name,Group_Code'))
-               ->whereIn('Group_Code', array(11,12,14,15))
-               ->orderBy('Group_Name')
-               ->get();
-        //11 12 14 15
-        //$reportgroup=AccountsGroup::all();
-
-        $reportgroup = DB::table('accmasaccounts')
-                     ->select(DB::raw('Ac_Name,Ac_Code'))
-                     ->orderBy('Ac_Name')
-                     //->where('status', '<>', 1)
-                     //->groupBy('status')
-                     ->get();
-         */
-
         $reportgroup = Accounts::report();
         $subgroup = AccountsGroup::subgroup();
         $accountsgroups = AccountsGroup::getall();
-
         return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
 
@@ -70,7 +45,7 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        Accounts::add($request->all());
+        $this->submit($request->all());
         $msg = [
           'message' => 'Ac Name  created successfully!' ];
         return  redirect('accounts')->with($msg);
@@ -97,15 +72,7 @@ class AccountsController extends Controller
      */
     public function edit(Accounts $accounts)
     {
-        /*  $accountsgroups = DB::table('accmasgroup')
-      ->select(DB::raw('Group_Name,Group_Code'))        
-        ->orderBy('Group_Name')
-        ->get();
-        $subgroup = DB::table('accmasgroup')
-               ->select(DB::raw('Group_Name,Group_Code'))
-               ->whereIn('Group_Code', array(11,12,14,15))
-               ->orderBy('Group_Name')
-               ->get();  */
+
         $accountsgroups = AccountsGroup::getall();
         $subgroup = AccountsGroup::subgroup();
 
