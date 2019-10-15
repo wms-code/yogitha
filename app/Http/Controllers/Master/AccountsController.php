@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master;
 
+use App\Traits\AddAccount;
 use Illuminate\Http\Request;
 use App\Model\Master\Accounts;
 use App\Model\Master\AccountsGroup;
@@ -9,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 class AccountsController extends Controller
 {
+    use AddAccount;
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +19,8 @@ class AccountsController extends Controller
      */
     public function index()
     {
-       // return $accounts= Accounts::all();
         $accounts= Accounts::orderBy('Ac_Name','asc')->with(['accountsgroups','subgroup'])->get();
         return view('accounts.list',compact('accounts'));
-
-      //  $items= Items::orderBy('It_Name','asc')->with(['group','unit'])->get();
-        //return view('items.list',compact('items'));
 
     }
 
@@ -32,6 +31,7 @@ class AccountsController extends Controller
      */
     public function create()
     { 
+<<<<<<< HEAD
         /* $accountsgroups = DB::table('accmasgroup')
         ->select(DB::raw('Group_Name,Group_Code')) 
         //   ->select('Group_Name','Group_Code')     Why Not Use Simple Select
@@ -57,10 +57,11 @@ class AccountsController extends Controller
 
          
 
+=======
+>>>>>>> 290e5cce193bf80f25aeea01daafa8610dd5c1e1
         $reportgroup = Accounts::report();
         $subgroup = AccountsGroup::subgroup();
         $accountsgroups = AccountsGroup::getall();
-
         return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
 
@@ -72,7 +73,7 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        Accounts::add($request->all());
+        $this->submit($request->all());
         $msg = [
           'message' => 'Ac Name  created successfully!' ];
         return  redirect('accounts')->with($msg);
@@ -99,7 +100,12 @@ class AccountsController extends Controller
      */
     public function edit($ac_code)
     {
+<<<<<<< HEAD
         $accgroup = AccountsGroup::getall();
+=======
+
+        $accountsgroups = AccountsGroup::getall();
+>>>>>>> 290e5cce193bf80f25aeea01daafa8610dd5c1e1
         $subgroup = AccountsGroup::subgroup();
 
         $reportgroup = Accounts::report();
