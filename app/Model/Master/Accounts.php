@@ -27,7 +27,7 @@ class Accounts extends Model
        return $id+1;
     }
 
-    protected function reportgroup()
+    protected function report()
     {
         return $this->select('Ac_Name','Ac_Code') 
         ->orderBy('Ac_Name')

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\Master\Accounts;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Model\Master\Accounts;
 use App\Model\Master\AccountsGroup;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class AccountsController extends Controller
 {
@@ -56,9 +55,9 @@ class AccountsController extends Controller
                      ->get();
          */
 
-        $accountsgroups = AccountsGroup::getall();
+        $reportgroup = Accounts::report();
         $subgroup = AccountsGroup::subgroup();
-        $reportgroup = Accounts::reportgroup();
+        $accountsgroups = AccountsGroup::getall();
 
         return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
