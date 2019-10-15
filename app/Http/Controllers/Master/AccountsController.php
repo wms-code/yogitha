@@ -89,9 +89,9 @@ class AccountsController extends Controller
     public function update(Request $request, Accounts $accounts)
     {
         
-        Accounts::where('Ac_Code', $accounts)
+        Accounts::where('Ac_Code', $request['Ac_Code'])
         ->update($request->except(['_token','_method','opnbal','ActiveRadio']));       
-        $msg =['message' => 'Accounts Name  Updated successfully ...'.$accounts['Ac_Name']];
+        $msg =['message' => 'Accounts Name  Updated successfully ...'.$request['Ac_Code']];
         return  redirect('accounts')->with($msg);
     }
 

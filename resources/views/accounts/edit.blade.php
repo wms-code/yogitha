@@ -19,6 +19,12 @@
                         <br>
                         @csrf
                         @method('put')
+                        div class="form-group row">
+                                <label class="control-label text-right col-md-3">Accounts Code</label>
+                                <div class="col-md-6">
+                                    <input type="text" name="Ac_Code" value="{{ $accounts->Ac_Code}}" maxlength="50" class="form-control">                                   
+                                </div>
+                        </div>
                         <div class="form-group row">
                                 <label class="control-label text-right col-md-3">Accounts Name</label>
                                 <div class="col-md-6">
