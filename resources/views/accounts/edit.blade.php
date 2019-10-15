@@ -111,7 +111,7 @@
                                     <div class="col-md-6">
                                         <input type="number" name="Opn_Bal" 
                                         
-                                        value="{{ $accounts->Opn_Bal }}"  maxlength="8" class="form-control">
+                                        value="{{ abs($accounts->Opn_Bal) }}"  maxlength="8" class="form-control">
                                         <select name="opnbal">
                                             <option value="1">Dr</option><option value="2">Cr</option>
                                         </select>
