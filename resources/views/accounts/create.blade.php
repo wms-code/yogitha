@@ -93,6 +93,12 @@
                                                     <input type="text" name="Address3" maxlength="50" class="form-control">
                                                 </div>
                                             </div>
+                                     <div class="form-group row">
+                                                <label class="control-label text-right col-md-3">Delivery Address</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="DelAddress" maxlength="50" class="form-control">
+                                                </div>
+                                    </div>        
                                     <div class="form-group row">
                                                     <label class="control-label text-right col-md-3">G.S.T. No</label>
                                                     <div class="col-md-6">
@@ -102,7 +108,10 @@
                                     <div class="form-group row last">
                                         <label class="control-label text-right col-md-3">Opn Bal</label>
                                         <div class="col-md-6">
-                                            <input type="text" name="Opn_Bal" maxlength="50" class="form-control">
+                                            <input type="number" name="Opn_Bal" maxlength="8" class="form-control">
+                                            <select name="opnbal">
+                                                <option value="1">Dr</option><option value="2">Cr</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -110,12 +119,12 @@
                                                 <label class="control-label">Active/In Active</label>
                                                 <div class="form-check">
                                                     <label class="custom-control custom-radio">
-                                                        <input id="radio1" name="radio" type="radio" checked="" class="custom-control-input">
+                                                        <input id="radio1" name="ActiveRadio" type="radio" checked="" class="custom-control-input">
                                                         <span class="custom-control-indicator"></span>
                                                         <span class="custom-control-description">Active</span>
                                                     </label>
                                                     <label class="custom-control custom-radio">
-                                                        <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                                        <input id="radio2" name="ActiveRadio" type="radio" class="custom-control-input">
                                                         <span class="custom-control-indicator"></span>
                                                         <span class="custom-control-description">InActive</span>
                                                     </label>

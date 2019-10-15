@@ -6,7 +6,8 @@ use App\Model\Master\Accounts;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Master\AccountsGroup;
- 
+use Illuminate\Support\Facades\DB;
+
 class AccountsController extends Controller
 {
     /**
@@ -32,9 +33,27 @@ class AccountsController extends Controller
      */
     public function create()
     { 
-        $accountsgroups=AccountsGroup::all();
-        $subgroup=AccountsGroup::all();
-        $reportgroup=AccountsGroup::all();
+        $accountsgroups = DB::table('accmasgroup')
+        ->select(DB::raw('Group_Name,Group_Code'))        
+        ->orderBy('Group_Name')
+        ->get();
+
+        //$subgroup=AccountsGroup::all();
+        $subgroup = DB::table('accmasgroup')
+               ->select(DB::raw('Group_Name,Group_Code'))
+               ->whereIn('Group_Code', array(11,12,14,15))
+               ->orderBy('Group_Name')
+               ->get();
+        //11 12 14 15
+        //$reportgroup=AccountsGroup::all();
+
+        $reportgroup = DB::table('accmasaccounts')
+                     ->select(DB::raw('Ac_Name,Ac_Code'))
+                     ->orderBy('Ac_Name')
+                     //->where('status', '<>', 1)
+                     //->groupBy('status')
+                     ->get();
+
         return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
 
@@ -46,11 +65,16 @@ class AccountsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Accounts::add($request->all());
+        $msg = [
+          'message' => 'Ac Name  created successfully!' ];
+        return  redirect('accounts')->with($msg);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified res
+     * 
+     * ource.
      *
      * @param  \App\Model\Accounts  $accounts
      * @return \Illuminate\Http\Response
@@ -68,7 +92,26 @@ class AccountsController extends Controller
      */
     public function edit(Accounts $accounts)
     {
-        //
+        $accountsgroups = DB::table('accmasgroup')
+        ->select(DB::raw('Group_Name,Group_Code'))        
+        ->orderBy('Group_Name')
+        ->get();
+        $subgroup = DB::table('accmasgroup')
+               ->select(DB::raw('Group_Name,Group_Code'))
+               ->whereIn('Group_Code', array(11,12,14,15))
+               ->orderBy('Group_Name')
+               ->get();
+        $reportgroup = DB::table('accmasaccounts')
+                     ->select(DB::raw('Ac_Name,Ac_Code'))
+                     ->orderBy('Ac_Name')
+                    ->get();
+        $accounts = DB::table('accmasaccounts')
+                    ->join('accmasgroup', 'accmasaccounts.Group_Code', '=', 'accmasgroup.Group_Code')
+                    ->select('Ac_Code', 'accmasgroup.Group_Name', 'Ac_Name')
+                    ->where('Ac_Code',$accounts)
+                    ->get();
+        //$accounts=Accounts::where('Ac_Code',$items)->with(['group','unit'])->first();
+        return  view('accounts.edit',compact('accountsgroups','subgroup','reportgroup','accounts'));
     }
 
     /**
