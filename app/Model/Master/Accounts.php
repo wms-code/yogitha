@@ -27,10 +27,20 @@ class Accounts extends Model
        return $id+1;
     }
 
+    protected function reportgroup()
+    {
+        return $this->select('Ac_Name','Ac_Code') 
+        ->orderBy('Ac_Name')
+        //->where('status', '<>', 1)
+        //->groupBy('status')
+        ->get();
+    }
+
     protected function add($rec)
     {
        if(isset($rec['Ac_Name']))
        {
+           //Todo: Need to Optimize code 
            $data['Ac_Code']=$this->getid();
            $data['Ac_Name']=$rec['Ac_Name'];
            $data['Comp_Id']='1';

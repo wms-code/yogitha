@@ -17,4 +17,20 @@ class AccountsGroup extends Model
     {
         return 'Group_Code';
     }
+
+
+    protected function getall()
+    {
+        return $this->select('Group_Name','Group_Code')     
+        ->orderBy('Group_Name')
+        ->get();
+    }
+
+    protected function subgroup()
+    {
+        return $this->select('Group_Name','Group_Code') 
+        ->whereIn('Group_Code', array(11,12,14,15))
+        ->orderBy('Group_Name')
+        ->get();
+    }
 }

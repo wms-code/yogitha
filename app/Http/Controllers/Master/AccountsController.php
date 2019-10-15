@@ -33,8 +33,9 @@ class AccountsController extends Controller
      */
     public function create()
     { 
-        $accountsgroups = DB::table('accmasgroup')
-        ->select(DB::raw('Group_Name,Group_Code'))        
+        /* $accountsgroups = DB::table('accmasgroup')
+        ->select(DB::raw('Group_Name,Group_Code')) 
+        //   ->select('Group_Name','Group_Code')     Why Not Use Simple Select
         ->orderBy('Group_Name')
         ->get();
 
@@ -53,6 +54,11 @@ class AccountsController extends Controller
                      //->where('status', '<>', 1)
                      //->groupBy('status')
                      ->get();
+         */
+
+        $accountsgroups = AccountsGroup::getall();
+        $subgroup = AccountsGroup::subgroup();
+        $reportgroup = Accounts::reportgroup();
 
         return view('accounts.create',compact('accountsgroups','subgroup','reportgroup'));
     }
