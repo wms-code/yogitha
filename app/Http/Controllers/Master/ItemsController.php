@@ -86,7 +86,7 @@ class ItemsController extends Controller
         Items::where('It_Code', $it_code)
                     ->update($request->except(['_token','_method']));       
         $msg =['message' => 'Item  Updated successfully!'];
-       return  redirect('items')->with($msg);
+        return  redirect('items')->with($msg);
     }
 
     /**

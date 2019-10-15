@@ -37,16 +37,6 @@ class Accounts extends Model
     }
     public function subgroup()
     {
-<<<<<<< HEAD
-        return $this->hasOne(AccountsGroup::class, 'Group_Code', 'Group_Code')->whereIn('Group_Code', array(11,12,14,15));
-    
-   
-    }
-    public function reportgroup()
-    {
-        return $this->hasOne(Accounts::class, 'Ac_name');
-    }
-=======
         return $this->hasOne(AccountsGroup::class, 'Group_Code', 'SubGroup_Code');
     }
 
@@ -56,5 +46,4 @@ class Accounts extends Model
     }
     
 
->>>>>>> 290e5cce193bf80f25aeea01daafa8610dd5c1e1
 }

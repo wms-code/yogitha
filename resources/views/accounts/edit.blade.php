@@ -97,7 +97,7 @@
                                  <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Delivery Address</label>
                                             <div class="col-md-6">
-                                                <input type="text" name="DelAddress" value="{{ $accounts->DelAddress }}"  maxlength="50" class="form-control">
+                                                <input type="text" name="Del_Address" value="{{ $accounts->Del_Address }}"  maxlength="50" class="form-control">
                                             </div>
                                 </div>        
                                 <div class="form-group row">
@@ -111,7 +111,7 @@
                                     <div class="col-md-6">
                                         <input type="number" name="Opn_Bal" 
                                         
-                                        value="{{ abs($accounts->Opn_Bal) }}"  maxlength="8" class="form-control">
+                                        value="{{  abs($accounts->Opn_Bal) }}"  maxlength="8" class="form-control">
                                         <select name="opnbal">
                                             <option value="1">Dr</option><option value="2">Cr</option>
                                         </select>
@@ -134,6 +134,21 @@
                                             </div>
                                         </div>
                                     </div>  
+                                    <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="offset-sm-3 col-md-7">
+                                                           
+                                                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                            <a href="{{ url('accounts') }}" class="btn btn-inverse">Cancel</a>
+                                                        </div>
+                                                    </div>
+                
+                                                    <br><br>
+                                                </div>
+                                            </div>
+                                        </div>
                         </div>
 
 
