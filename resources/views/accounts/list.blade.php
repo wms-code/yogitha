@@ -49,7 +49,7 @@
                                                         <td>{{$d->accountsgroups['Group_Name']}}.{{$d->subgroup['Group_Name']}}</td>                                               
                                                         <td>{{$d->Address1}}</td>                             
                                                         <td>{{$d->Phone}}/{{$d->Mobile}}</td>  
-                                                        <td>{{$d->GSTNO}}</td>                             
+                                                        <td>{{$d->GSTNO}}  {{$d->Opn_Bal}}</td>                             
                                                                                                   
                                                         <td class="text-nowrap">
                                                             <a href="{{ url('accounts') }}/{{$d->Ac_Code}}/edit" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>

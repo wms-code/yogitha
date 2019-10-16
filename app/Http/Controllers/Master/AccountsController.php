@@ -86,18 +86,27 @@ class AccountsController extends Controller
      * @param  \App\Model\Accounts  $accounts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accounts $accounts)
+    public function update(Request $request,  $accounts)
     {
         
-<<<<<<< HEAD
-        Accounts::where('Ac_Code', $request['Ac_Code'])
-        ->update($request->except(['_token','_method','opnbal','ActiveRadio']));       
-        $msg =['message' => 'Accounts Name  Updated successfully ...'.$request['Ac_Code']];
-=======
-        //Accounts::where('Ac_Code', $accounts)
-        $accounts->update($request->except(['_token','_method','opnbal','ActiveRadio']));       
-        $msg =['message' => 'Accounts Name  Updated successfully ...'.$accounts['Ac_Name']];
->>>>>>> bedb28281ad140a6a4564e00560621c01695b1fc
+        Accounts::where('Ac_Code', $accounts)
+        ->update($request->except(['_token','_method','opnbal']));       
+        $msg =['message' => 'Accounts Name  Updated successfully ...'.$request['opnbal']];
+
+        $opnbal=$request->Opn_Bal;
+        if ( $opnbal<=0)
+        {
+            $opnbal=$opnbal*-1;
+            Accounts::where('Ac_Code', $accounts)
+           ->update(['Opn_Bal'=> $opnbal]);  
+        }
+        else
+        {
+            Accounts::where('Ac_Code', $accounts)
+            ->update(['Opn_Bal'=>$request->Opn_Bal]); 
+        }
+          
+
         return  redirect('accounts')->with($msg);
     }
 

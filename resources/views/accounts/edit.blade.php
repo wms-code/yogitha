@@ -19,10 +19,10 @@
                         <br>
                         @csrf
                         @method('put')
-                        div class="form-group row">
+                        <div class="form-group row">
                                 <label class="control-label text-right col-md-3">Accounts Code</label>
                                 <div class="col-md-6">
-                                    <input type="text" name="Ac_Code" value="{{ $accounts->Ac_Code}}" maxlength="50" class="form-control">                                   
+                                    <input type="text" readonly name="Ac_Code" value="{{ $accounts->Ac_Code}}" maxlength="50" class="form-control">                                   
                                 </div>
                         </div>
                         <div class="form-group row">
@@ -119,7 +119,8 @@
                                         
                                         value="{{  abs($accounts->Opn_Bal) }}"  maxlength="8" class="form-control">
                                         <select name="opnbal">
-                                            <option value="1">Dr</option><option value="2">Cr</option>
+                                            <option {{ ($accounts->Opn_Bal<"0")? "selected" : "" }} value="1">Dr</option>
+                                            <option {{ ($accounts->Opn_Bal>"0")? "selected" : "" }} value="2">Cr</option>
                                         </select>
                                     </div>
                                 </div>
@@ -128,12 +129,16 @@
                                             <label class="control-label">Active/In Active</label>
                                             <div class="form-check">
                                                 <label class="custom-control custom-radio">
-                                                    <input id="radio1" name="ActiveRadio" type="radio" checked="" class="custom-control-input">
+                                                    <input id="radio1" name="Active" 
+                                                    {{ ($accounts->Active=="1")? "checked" : "" }}
+                                                    value ="1" type="radio"  class="custom-control-input">
                                                     <span class="custom-control-indicator"></span>
                                                     <span class="custom-control-description">Active</span>
                                                 </label>
                                                 <label class="custom-control custom-radio">
-                                                    <input id="radio2" name="ActiveRadio" type="radio" class="custom-control-input">
+                                                    <input id="radio2" name="Active"
+                                                    {{ ($accounts->Active=="0")? "checked" : "" }}
+                                                    type="radio" value ="0" class="custom-control-input">
                                                     <span class="custom-control-indicator"></span>
                                                     <span class="custom-control-description">InActive</span>
                                                 </label>
