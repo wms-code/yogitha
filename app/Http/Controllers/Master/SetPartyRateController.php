@@ -70,9 +70,15 @@ class SetPartyRateController extends Controller
      * @param  \App\Model\SetPartyRate  $setPartyRate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SetPartyRate $setPartyRate)
+    public function update(Request $request)
     {
-        //
+        
+
+        foreach($request as $key => $n ) {
+            $arrData[] = array("lastname"=>$pty_code[$key], "name"=>$PerGramRate[$key]);
+            }
+
+        
     }
 
     /**

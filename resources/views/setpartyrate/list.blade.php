@@ -16,8 +16,27 @@
                                             </div>
                                           
                                           </div>
-                                       
-                             
+                                          <div class="card-body">
+                                                <form action="{{ url('setpartyrate') }}/update" method="post" class="form-horizontal form-bordered">
+                                                    <div class="form-body">
+                                                    <br>
+                                                    @csrf
+                                                    @method('put')
+                                          <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="offset-sm-3 col-md-7">
+                                                               
+                                                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                                                <a href="{{ url('accounts') }}" class="btn btn-inverse">Exit</a>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <br><br>
+                                                    </div>
+                                                </div>
+                                        </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -34,17 +53,21 @@
                                             @foreach ($setPartyRate as $d)
                                             <tr>
                                                  <td>{{ $i}}  </td>
-                                                <td>{{$d->Ac_Name}}</td>                                               
+                                                <td>{{$d->Ac_Name}} 
+                                                
+                                                        <input type="hidden"  readonly   value= {{ $d->Ac_Code}}                                                      
+                                                        name="pty_code[]"/> 
+                                                </td>                                            
                                                 <td class="text-nowrap">
                                                     <input type="text" 
                                                     value= {{ $d->PerGramRate >0 ? $d->PerGramRate : '0'}}                                                      
-                                                    name={{$d->Pty_Code}} />
+                                                    name="PerGramRate[]" />
                                                    
                                                 </td>
                                                 <td class="text-nowrap">
                                                         <input type="text" 
                                                         value= {{ $d->CreditDays >0 ? $d->CreditDays : '0'}}                                                         
-                                                        name={{$d->Pty_Code}}/>
+                                                        name="CreditDays"/>
                                                        
                                                      
                                                 </td>
@@ -57,6 +80,9 @@
                                     </table>
 
                                 </div>
+                                
+                    </form>
+                </div>
                             </div>
                         </div>
                     </div>

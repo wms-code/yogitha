@@ -27,7 +27,7 @@ class SetPartyRate extends Model
             //->select('users.*', 'contacts.phone', 'orders.price')
             //->get();
 
-        return $this->select('masrate.*','Ac_Name')  
+        return $this->select('masrate.*','Ac_Name','Ac_Code')  
         ->rightJoin('accmasaccounts', 'accmasaccounts.Ac_Code', '=', 'masrate.Pty_Code')
         ->whereIn('Group_Code', array(7))
         ->orderBy('Ac_Name')
