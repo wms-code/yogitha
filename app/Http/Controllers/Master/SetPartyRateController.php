@@ -15,7 +15,9 @@ class SetPartyRateController extends Controller
      */
     public function index()
     {
-        return $setPartyRate= SetPartyRate::all();
+         $setPartyRate= SetPartyRate::getall();
+       // $items= Items::orderBy('It_Name','asc')->with(['group','unit'])->get();
+        return view('setpartyrate.list',compact('setPartyRate'));
     }
 
     /**
