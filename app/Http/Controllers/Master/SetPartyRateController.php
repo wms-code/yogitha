@@ -77,12 +77,14 @@ class SetPartyRateController extends Controller
 
   foreach ($request->items as  $item) {
 
-      $record=SetPartyRate::where('Pty_Code',$item['Pty_Code'])->first();
-       if($record){
-         SetPartyRate::where('Pty_Code',$item['Pty_Code'])->update($item);        
+      $data=SetPartyRate::where('Pty_Code',$item['Pty_Code'])->first();
+       if($data){
+           if ($data->PerGramRate !=$item['PerGramRate'] || $data->CreditDays !=$item['CreditDays']) {
+            SetPartyRate::where('Pty_Code',$item['Pty_Code'])->update($item);
+           }                 
        } 
        else{
-        SetPartyRate::create($item);
+                SetPartyRate::create($item);
        }      
      } 
      $msg = [ 'message' => 'Update successfully!' ];
