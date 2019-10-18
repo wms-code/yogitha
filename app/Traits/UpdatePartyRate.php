@@ -9,17 +9,9 @@ trait UpdatePartyRate
 
     public function updateRate($request)
     {
-        $rates=SetPartyRate::all();
-        
-        
-        foreach ($rates as  $list) 
-        {
-            $pty_code[]=$list->Pty_Code;
-            $lists[$list->Pty_Code]=$list;
-        } 
+        $rates=SetPartyRate::all();       
+        foreach ($rates as  $list) $lists[$list->Pty_Code]=$list;
 
-      
-     
         foreach ($request as  $item) 
         {
             if (array_key_exists($item['Pty_Code'],$lists)) 
