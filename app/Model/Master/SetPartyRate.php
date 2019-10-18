@@ -8,7 +8,7 @@ class SetPartyRate extends Model
 {
     //
     protected $table='masrate';
-
+    protected $guarded=[];
     protected $PrimaryKey=['Pty_Code','Comp_ID'];
 
     public $incrementing =false;

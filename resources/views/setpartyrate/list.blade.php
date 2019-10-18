@@ -56,23 +56,20 @@
                                                 <td>{{$d->Ac_Name}} 
                                                 
                                                         <input type="hidden"  readonly   value= {{ $d->Ac_Code}}                                                      
-                                                        name="pty_code[]"/> 
+                                                        name="items[{{ $i}}][Pty_Code]"/> 
                                                 </td>                                            
                                                 <td class="text-nowrap">
-                                                    <input type="text" 
-                                                    value= {{ $d->PerGramRate >0 ? $d->PerGramRate : '0'}}                                                      
-                                                    name="PerGramRate[]" />
+                                                    <input type="text"  class="form-control"
+                                                    value="{{ $d->PerGramRate >0 ? $d->PerGramRate : '0'}} "
+                                                    name="items[{{ $i}}][PerGramRate]" />
+                                                    <input type="hidden" value="1" name="items[{{ $i}}][Comp_ID]" />
                                                    
                                                 </td>
                                                 <td class="text-nowrap">
-                                                        <input type="text" 
-                                                        value= {{ $d->CreditDays >0 ? $d->CreditDays : '0'}}                                                         
-                                                        name="CreditDays"/>
-                                                       
-                                                     
+                                                        <input type="text"  class="form-control"  value="{{ $d->CreditDays >0 ? $d->CreditDays : '0'}}" name="items[{{ $i}}][CreditDays]"/>              
                                                 </td>
                                             </tr>
-                                            @php ($i = $i+1)
+                                            @php ($i++)
                                             
                                             @endforeach
                                            

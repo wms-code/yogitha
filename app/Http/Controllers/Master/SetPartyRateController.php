@@ -72,13 +72,21 @@ class SetPartyRateController extends Controller
      */
     public function update(Request $request)
     {
+       
         
 
-        foreach($request as $key => $n ) {
-            $arrData[] = array("lastname"=>$pty_code[$key], "name"=>$PerGramRate[$key]);
-            }
+  foreach ($request->items as  $item) {
 
-        
+      $record=SetPartyRate::where('Pty_Code',$item['Pty_Code'])->first();
+       if($record){
+         SetPartyRate::where('Pty_Code',$item['Pty_Code'])->update($item);        
+       } 
+       else{
+        SetPartyRate::create($item);
+       }      
+     } 
+     $msg = [ 'message' => 'Update successfully!' ];
+     return  redirect()->back()->with($msg);
     }
 
     /**
