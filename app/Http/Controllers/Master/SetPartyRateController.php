@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Master;
 
-use App\Model\Master\SetPartyRate;
 use Illuminate\Http\Request;
+use App\Traits\UpdatePartyRate;
+use App\Model\Master\SetPartyRate;
 use App\Http\Controllers\Controller;
 
 class SetPartyRateController extends Controller
 {
+   use UpdatePartyRate;
+   
     /**
      * Display a listing of the resource.
      *
@@ -72,21 +75,7 @@ class SetPartyRateController extends Controller
      */
     public function update(Request $request)
     {
-       
-        
-
-  foreach ($request->items as  $item) {
-
-      $data=SetPartyRate::where('Pty_Code',$item['Pty_Code'])->first();
-       if($data){
-           if ($data->PerGramRate !=$item['PerGramRate'] || $data->CreditDays !=$item['CreditDays']) {
-            SetPartyRate::where('Pty_Code',$item['Pty_Code'])->update($item);
-           }                 
-       } 
-       else{
-                SetPartyRate::create($item);
-       }      
-     } 
+        return $this->updateRate($request->items);
      $msg = [ 'message' => 'Update successfully!' ];
      return  redirect()->back()->with($msg);
     }
